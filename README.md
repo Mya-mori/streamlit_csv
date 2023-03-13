@@ -1,6 +1,6 @@
 # streamlit_csv
 
-- streamlitの画面からcsvのアップロード出来るようにする
+直近の目標:streamlitの画面からcsvのアップロード出来るようにする
 
 # 環境セットアップ
 
