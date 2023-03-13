@@ -68,7 +68,7 @@ if st.button('OK !!!'):
             schema     = schema_name,
             table_name = table_name
         )
-    st.success("Successfully load to Snowflake!")
+    st.success("Successfully upload to Snowflake!")
 
 else:
     st.error("Failed to load the csv data ....")
