@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import snowflake.connector
+# from snowflake.snowpark.session import Session
+from snowflake.connector.pandas_tools import write_pandas
 
 # インポート先の情報を入力する
 # 入力フォームを作成
@@ -55,9 +57,18 @@ if uploaded_file is not None:
     st.write(df)
 
 if st.button('OK !!!'):
-    query = f'SELECT * FROM {database_name}.{schema_name}.MY_FIRST_DBT_MODEL'
-    df    = pd.read_sql(query, conn)
-    st.write(df)
+    # Get available warehouses
+    cursor     = conn.cursor()
+    cursor.execute(f'USE WAREHOUSE {warehouse}')
 
-if st.button('No.....'):
-    st.write("Chack Please")
+    success, num_chunks, num_rows, output = write_pandas(
+            conn       = conn,
+            df         = df,
+            database   = database_name,
+            schema     = schema_name,
+            table_name = table_name
+        )
+    st.success("Successfully load to Snowflake!")
+
+else:
+    st.error("Failed to load the csv data ....")

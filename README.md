@@ -14,6 +14,8 @@ conda install -c https://repo.anaconda.com/pkgs/snowflake snowflake-snowpark-pyt
 
 pip install streamlit
 
+!pip install awswrangler
+
 streamlit run test.py
 
 ```
