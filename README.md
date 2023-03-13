@@ -12,7 +12,7 @@ echo $SHELL
 
 conda init bash
 
-conda activate streamlit-task
+conda activate streamlit-csv
 
 conda install -c https://repo.anaconda.com/pkgs/snowflake snowflake-snowpark-python pandas notebook scikit-learn cachetools
 
