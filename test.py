@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import snowflake.connector
-# from snowflake.snowpark.session import Session
 from snowflake.connector.pandas_tools import write_pandas
 
 # インポート先の情報を入力する
 # 入力フォームを作成
+st.title('*Enter The Deploye Information* :sunglasses:')
 with st.form(key = 'snowflake_form'):
     account_name = st.text_input('Account Name')
     user_name    = st.text_input('User Name')
